@@ -1,3 +1,5 @@
-# notes_app
+# Notes App by Faridun :D
 
-A new Flutter project.
+This app gives you opportunity to store your ideas and keep them localy on your mobile phone ;)
+
+This project is fully founded by me!
