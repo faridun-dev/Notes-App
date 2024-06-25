@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/consts/colors.dart';
+import 'package:notes_app/pages/new_note_page.dart';
 import 'package:notes_app/pages/note_page.dart';
 import 'package:notes_app/utils/add_button_util.dart';
 import 'package:notes_app/utils/app_bar.dart';
@@ -80,7 +81,22 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      floatingActionButton: floatingButton,
+      floatingActionButton: FloatingActionButton(
+        elevation: 4,
+        backgroundColor: foregroundColor,
+        foregroundColor: fontColor,
+        child: const Icon(
+          Icons.add,
+        ),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const NewNotePage(),
+            ),
+          );
+        },
+      ),
     );
   }
 }

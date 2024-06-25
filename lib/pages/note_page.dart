@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/consts/colors.dart';
-import 'package:notes_app/utils/note_page_app_bar.dart';
 
 class NotePage extends StatefulWidget {
   final List notes;
