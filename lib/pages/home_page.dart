@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/consts/colors.dart';
+import 'package:notes_app/pages/note_page.dart';
 import 'package:notes_app/utils/add_button_util.dart';
 import 'package:notes_app/utils/app_bar.dart';
 import 'package:notes_app/utils/note_card.dart';
@@ -60,9 +61,22 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          child: NoteCard(
-            title: notes[index][0],
-            content: notes[index][1],
+          child: GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => NotePage(
+                    notes: notes,
+                    index: index,
+                  ),
+                ),
+              );
+            },
+            child: NoteCard(
+              title: notes[index][0],
+              content: notes[index][1],
+            ),
           ),
         ),
       ),
