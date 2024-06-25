@@ -25,6 +25,7 @@ class _NoteCardState extends State<NoteCard> {
         top: 20,
       ),
       child: Container(
+        width: double.infinity,
         decoration: BoxDecoration(
           color: foregroundColor,
           borderRadius: BorderRadius.circular(

@@ -20,6 +20,12 @@ class _HomePageState extends State<HomePage> {
     ],
   ];
 
+  void deleteNote(int index) {
+    setState(() {
+      notes.removeAt(index);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,9 +33,37 @@ class _HomePageState extends State<HomePage> {
       appBar: appBar,
       body: ListView.builder(
         itemCount: notes.length,
-        itemBuilder: (context, index) => NoteCard(
-          title: notes[index][0],
-          content: notes[index][1],
+        itemBuilder: (context, index) => Dismissible(
+          key: ValueKey(notes[index]),
+          direction: DismissDirection.endToStart,
+          onDismissed: (direction) {
+            deleteNote(index);
+          },
+          background: Padding(
+            padding: const EdgeInsets.only(
+              left: 24,
+              right: 24,
+              top: 20,
+            ),
+            child: Container(
+              decoration: const BoxDecoration(
+                color: deleteContainerColor,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(
+                    12,
+                  ),
+                ),
+              ),
+              child: const Icon(
+                Icons.delete,
+                color: deleteIconColor,
+              ),
+            ),
+          ),
+          child: NoteCard(
+            title: notes[index][0],
+            content: notes[index][1],
+          ),
         ),
       ),
       floatingActionButton: floatingButton,
